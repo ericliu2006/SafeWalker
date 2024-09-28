@@ -6,7 +6,7 @@ This script detects traffic signs (pedestrian signals) and vehicles from a video
 
 ## Members
 - Eric Liu   eyl17@pitt.edu
-- Thomas Tran     
+- Thomas Tran  tdt17@pitt.edu  
 - Lokesh Daita lod14@pitt.edu
 - Abhinav Nath abn52@pitt.edu
 
