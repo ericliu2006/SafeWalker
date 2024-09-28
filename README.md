@@ -5,10 +5,10 @@
 This script detects traffic signs (pedestrian signals) and vehicles from a video feed using YOLOv8. It also analyzes the color of pedestrian signals (red for "Stop", green for "Walk") and provides voice alerts for both pedestrian signals and large vehicles in the frame.
 
 ## Members
-- Eric Liu        eyl17@pitt.edu
+- Eric Liu   eyl17@pitt.edu
 - Thomas Tran     
-- Lokesh Daita
-- Abhinav Nath 
+- Lokesh Daita lod14@pitt.edu
+- Abhinav Nath abn52@pitt.edu
 
 ## Features
 - Detects traffic signals and vehicles in a video stream.
