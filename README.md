@@ -14,7 +14,7 @@ This script detects traffic signs (pedestrian signals) and vehicles from a video
 To install the required dependencies, run the following command:
 ```bash
 pip install opencv-python ultralytics numpy pyttsx3
-
+```
 ## Libraries Used:
 
 - OpenCV: For video capture and drawing bounding boxes.
