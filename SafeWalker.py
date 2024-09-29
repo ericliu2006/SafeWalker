@@ -15,6 +15,7 @@ model = YOLO('yolov8n.pt')  # Use yolov8n.pt for faster inference, or yolov8s.pt
 # Frame skip and count for performance
 frame_skip = 1  # Number of frames to skip
 frame_count = 0  # Initialize frame count
+vehiclecross = True;
 
 # Bounding box size parameters for first-person perspective
 center_box_width_ratio = 0.4  # Central vertical region (40% width)
@@ -47,9 +48,9 @@ def detect_color(roi):
     rest_pixels = cv2.countNonZero(rest_mask)
 
     if red_pixels > white_pixels and red_pixels > rest_pixels:
-        return "Stop (Red Hand)"
+        return "Do not cross the street"
     elif white_pixels > red_pixels and white_pixels > rest_pixels:
-        return "Walk (Green Person)"
+        return "You are clear to cross"
     else:
         return " "
 
@@ -117,7 +118,7 @@ while cap.isOpened():
                             # Crop the ROI for color detection
                             roi = frame[y1:y2, x1:x2]
                             signal_status = detect_color(roi)
-                            signal_color = (0, 255, 0) if signal_status == "Walk (Green Person)" else (0, 0, 255)
+                            signal_color = (0, 255, 0) if signal_status == "You are clear to cross" else (0, 0, 255)
                             cv2.putText(frame, signal_status, (x1, y2 + 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, signal_color, 2)
 
                             if signal_status and signal_status != previous_signal_status:
@@ -136,10 +137,15 @@ while cap.isOpened():
                         vehicle_area = (x2 - x1) * (y2 - y1)
                         central_box_area = (box_x2 - box_x1) * (box_y2 - box_y1)
 
-                        # If the vehicle's area is more than 1/5 of the central bounding box area
-                        if vehicle_area > central_box_area / 5:
+                        # If the vehicle's area is more than 1/4 of the central bounding box area
+                        if vehicle_area > central_box_area / 4:
                             # Speak the vehicle alert non-blocking
                             speak_non_blocking("Be careful, potential vehicle ahead.")
+                            vehiclecross = False
+
+                    if vehiclecross == False and not is_speaking:
+                        speak_non_blocking("Vehicle has moved")
+                        vehiclecross = True
 
     frame_count += 1  # Increment frame count
 
