@@ -21,7 +21,7 @@ vehiclecross = True;
 center_box_width_ratio = 0.4  # Central vertical region (40% width)
 center_box_height_ratio = 0.833  # 1 - (1/6), i.e., 83.3% of the total height
 
-cap = cv2.VideoCapture('trafficstops.mkv')  # Replace with your video file or use 0 for webcam
+cap = cv2.VideoCapture(0)  # Replace with your video file or use 0 for webcam
 
 
 def detect_color(roi):
