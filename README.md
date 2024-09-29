@@ -23,15 +23,15 @@ pip install opencv-python ultralytics numpy pyttsx3
 ```
 ## Libraries Used:
 
-- OpenCV: For video capture and drawing bounding boxes.
-- YOLOv8 (Ultralytics): For object detection.
+- OpenCV: For video capture and drawing bounding boxes, mostly used for detecting colors of signals.
+- YOLOv8 (Ultralytics): For object detection mostly traffic related objects, cars, traffic lights, busses, etc.
 - NumPy: For image processing.
 - pyttsx3: For text-to-speech functionality.
   
 ## Usage
-- Replace 'trafficstops.mkv' with your video file or use 0 for webcam.
+- Replace 0 with 'video_name' if you don't want webcam in line cap = cv2.VideoCapture(0)
 - Run the script to start detection.
-- Press q to quit the video feed.
+- Press control and c to quit the program.
 
 ## Citations
 - This code was assisted by ChatGPT (OpenAI, 2024)
