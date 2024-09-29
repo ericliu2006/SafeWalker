@@ -32,3 +32,9 @@ pip install opencv-python ultralytics numpy pyttsx3
 - Replace 'trafficstops.mkv' with your video file or use 0 for webcam.
 - Run the script to start detection.
 - Press q to quit the video feed.
+
+## Citations
+- This code was assisted by ChatGPT (OpenAI, 2024)
+  https://chat.openai.com/
+- This code is based on the YouTube tutorial "HTML CSS and Javascript Website Design Tutorial - Beginner Project Fully Responsive" by Brian Design
+  Link: https://www.youtube.com/watch?v=example
