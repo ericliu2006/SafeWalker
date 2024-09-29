@@ -2,7 +2,7 @@
 ## Traffic Sign and Vehicle Detection using YOLOv8 and OpenCV
 
 ## Overview
-This script detects traffic signs (pedestrian signals) and vehicles from a video feed using YOLOv8. It also analyzes the color of pedestrian signals (red for "Stop", green for "Walk") and provides voice alerts for both pedestrian signals and large vehicles in the frame.
+This script utilizes YOLOv8 and OpenCV to detect traffic signs (pedestrian signals) and vehicles from a video feed. It analyzes the colors of pedestrian signals—red indicating "Do not cross the road" and green indicating "You may cross" — and provides voice alerts for both pedestrian signals and large vehicles passing in front of the client detected within the frame. The system intentionally does not analyze pedestrians, as this would be an inefficient use of resources and could lead to unnecessary disturbances.
 
 ## Members
 - Eric Liu   eyl17@pitt.edu
@@ -27,7 +27,7 @@ pip install opencv-python ultralytics numpy pyttsx3
 - YOLOv8 (Ultralytics): For object detection.
 - NumPy: For image processing.
 - pyttsx3: For text-to-speech functionality.
-
+  
 ## Usage
 - Replace 'trafficstops.mkv' with your video file or use 0 for webcam.
 - Run the script to start detection.
@@ -36,5 +36,3 @@ pip install opencv-python ultralytics numpy pyttsx3
 ## Citations
 - This code was assisted by ChatGPT (OpenAI, 2024)
   https://chat.openai.com/
-- This website code is based on the YouTube tutorial "HTML CSS and Javascript Website Design Tutorial - Beginner Project Fully Responsive" by Brian Design
-  Link: https://www.youtube.com/watch?v=example
