@@ -1,0 +1,447 @@
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar {
+    background: #003366; /* Dark blue background */
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.fa-gem {
+    margin-right: 0.5rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #0055ff; /* Blue button */
+    color: #ffffff; /* White text */
+}
+
+.button:hover {
+    background: #0033cc; /* Darker blue on hover */
+    transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+    color: #ffcc00; /* Gold on hover */
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        padding: 0;
+    }
+
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+        background: #003366; /* Dark blue background */
+    }
+
+    .navbar__menu.active {
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #ffffff; /* White bars */
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+}
+
+.main {
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.main__content h1 {
+    font-size: 4rem;
+    color: #003366; /* Dark blue text */
+}
+
+.main__content h2 {
+    font-size: 4rem;
+    color: #0055ff; /* Lighter blue text */
+}
+
+.main__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333; /* Dark text for readability */
+}
+
+.main__btn {
+    font-size: 1rem;
+    background: #0055ff; /* Blue button */
+    padding: 14px 32px;
+    border: none; /* Not necessary for anchor tags */
+    border-radius: 4px;
+    color: #ffffff; /* White text */
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    text-decoration: none; /* Remove underline from anchor */
+    display: inline-block; /* Ensure it behaves like a button */
+    text-align: center; /* Center text in the button */
+}
+
+.main__btn a {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; /* White text */
+    text-decoration: none;
+}
+
+.main__btn:hover {
+    background: #0033cc; /* Darker blue on hover */
+}
+
+#main__img {
+    height: 80%;
+    width: 80%;
+     /* Border properties */
+     border-radius: 10px; /* Rounds the edges */
+     border: 5px solid #003366; /* Solid border with the same color */
+     box-sizing: border-box; /* Ensures padding doesn't affect total width/height */
+}
+
+@media screen and (max-width: 768px) {
+    .main__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+    }
+
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1,
+    .main__content h2 {
+        font-size: 2.5rem;
+    }
+
+    .main__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+.services {
+    background: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.services h1 {
+    background-color: #003366; /* Fallback color */
+    background-image: linear-gradient(to right, #003366 0%, #00264d 20%, #001a33 40%, #00111a 60%, #000d1a 80%, #000b1a 100%);
+    background-size: 100%;
+    margin-bottom: 5rem;
+    font-size: 2.5rem;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.services__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services__card {
+    margin: 1rem;
+    height: 525px;
+    width: 400px;
+    border-radius: 10px;
+    background-image: linear-gradient(to top, #fff rgba(0, 0, 0, 0) 0%);
+    background-size: cover;
+    position: relative;
+    color: #fff;
+}
+
+.services__card:nth-child(2) {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(17, 17, 17, 0.6) 100%), url('GoogleMaps.webp');
+}
+
+/* Center the label (h2) above the input */
+.services__card h2 {
+    text-align: left;
+    margin-bottom: 10px;
+    color:#0033cc;
+}
+
+/* Flexbox for aligning input and button */
+.destination-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns input and button to the left */
+}
+
+/* Adjust input width and spacing */
+#destination {
+    flex-grow: 1;
+    padding: 8px; 
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+
+.services__card p {
+    position: absolute;
+    top: 400px;
+    left: 30px;
+}
+
+.services__card button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #0055ff;
+    position: absolute;
+    top: 28px;
+    left: 300px;
+    font-size: 1rem;
+    cursor: pointer
+}
+
+.services__card:hover {
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+    .services {
+        height: 1600px;
+    }
+
+    .services h1 {
+        font-size: 2rem;
+        margin-top: 12rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .services {
+        height: 1400px;
+    }
+
+    .services h1 {
+        font-size: 1.2rem;
+    }
+
+    .services__card {
+        width: 300px;
+    }
+}
+
+.footer__container {
+    background-color: #003366; /* Dark blue background */
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer__logo {
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.footer__link--items {
+    color: #ffffff; /* White text */
+}
+
+.footer__link--items a {
+    color: #ffffff; /* White links */
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer__link--items a:hover {
+    color: #ffcc00; /* Gold on hover */
+    transition: 0.3s ease-out;
+}
+
+.social__icon--link {
+    color: #ffffff; /* White icons */
+    font-size: 24px;
+}
+
+.social__media {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.social__media--wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+.website__right {
+    color: #ffffff; /* White text */
+}
+
+@media screen and (max-width: 820px) {
+    .footer__links {
+        padding-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer__link--items {
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+.camera-section {
+    padding: 20px;
+    text-align: center;
+}
+
+#video {
+    border: 2px solid #0055ff; /* Optional: adds a blue border around the video */
+}
+
+button {
+    background-color: #0055ff; /* Blue button */
+    color: white; /* White text */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px; /* Space above the button */
+}
