@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SafeWalker Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap" async defer></script>
     <style>
         /* Map will now stretch to fill the service card */
         #map {
@@ -19,15 +19,15 @@
         .destination-container {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Align input and button to the left */
+            justify-content: flex-start;
         }
 
         /* Input field */
         #destination {
-            flex-grow: 1; /* Take up available space */
+            flex-grow: 1;
             padding: 8px;
             font-size: 14px;
-            margin-right: 10px; /* Space between input and button */
+            margin-right: 10px;
         }
 
         /* Submit button next to the input field */
@@ -46,44 +46,24 @@
         .services__container {
             display: flex;
             justify-content: space-between;
-            height: 400px; /* Set a height for the services section */
+            height: 400px;
         }
 
         .services__card {
-            flex: 1; /* Make the cards equally wide */
-            margin: 0 10px; /* Small space between the cards */
-            position: relative; /* Ensure the map takes up the whole card */
-        }
-
-        /* About Us Section Styling for horizontal layout */
-        .footer__link--wrapper {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer__link--items {
             flex: 1;
-            text-align: left;
-            padding-right: 20px;
+            margin: 0 10px;
+            position: relative;
         }
 
         /* Footer content alignment */
-        .social__media--wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Ensure footer content sits inline */
-        .footer__logo,
-        .website__right {
+        .footer__logo, .website__right {
             display: inline-block;
         }
 
         /* Center the label (h2) above the input */
         .services__card h2 {
             text-align: left;
-            margin-bottom: 10px; /* Add some space between label and input */
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -103,7 +83,7 @@
                     <a href="#" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="#explore" class="navbar__links" onclick="scrollToExplore()">Technology</a> <!-- Scroll to Explore Section -->
+                    <a href="#explore" class="navbar__links" onclick="scrollToExplore()">Technology</a>
                 </li>
             </ul>
         </div>
@@ -112,7 +92,7 @@
     <div class="main">
         <div class="main__container">
             <div class="main__content">
-                <img src="SafeWalkerLogo.png" alt="SafeWalker Logo" style="max-width: 200px; margin-bottom: 20px;"> <!-- Logo added here -->
+                <img src="SafeWalkerLogo.png" alt="SafeWalker Logo" style="max-width: 200px; margin-bottom: 20px;">
                 <h1>NEXT GENERATION</h1>
                 <h2>TECHNOLOGY</h2>
                 <p>See what makes us different.</p>
@@ -129,22 +109,21 @@
         <h1>Use SafeWalker</h1>
         <div class="services__container">
             <div class="services__card">
-                <h2>Enter Your Destination</h2> <!-- Label moved above -->
-                <form action="/destination" method="POST">
+                <h2>Enter Your Destination</h2>
+                <form id="destinationForm" action="/destination" method="POST"> <!-- Add id to form -->
                     <div class="destination-container">
                         <input type="text" id="destination" name="destination" placeholder="Enter Destination" required>
-                        <button type="submit">Submit</button> <!-- Button next to input -->
+                        <button type="submit">Submit</button>
                     </div>
                 </form>
                 <div id="instructions"></div>
             </div>
             <div class="services__card">
-                <div id="map"></div> <!-- Map container filling the service card -->
+                <div id="map"></div>
             </div>
         </div>
     </div>
 
-    <!-- Horizontal About Us Section -->
     <div class="footer__container">
         <div class="footer__links">
             <div class="footer__link--wrapper">
@@ -153,15 +132,15 @@
                     <p>Eric Liu: <a href="mailto:eyl17@pitt.edu">eyl17@pitt.edu</a></p>
                 </div>
                 <div class="footer__link--items">
-                    <h2>&nbsp;</h2> <!-- Blank h2 to align -->
+                    <h2>&nbsp;</h2>
                     <p>Thomas Tran: <a href="mailto:tdt17@pitt.edu">tdt17@pitt.edu</a></p>
                 </div>
                 <div class="footer__link--items">
-                    <h2>&nbsp;</h2> <!-- Blank h2 to align -->
+                    <h2>&nbsp;</h2>
                     <p>Lokesh Daita: <a href="mailto:lod42@pitt.edu">lod42@pitt.edu</a></p>
                 </div>
                 <div class="footer__link--items">
-                    <h2>&nbsp;</h2> <!-- Blank h2 to align -->
+                    <h2>&nbsp;</h2>
                     <p>Abhinav Nath: <a href="mailto:abn52@pitt.edu">abn52@pitt.edu</a></p>
                 </div>
             </div>
@@ -169,22 +148,18 @@
 
         <div class="social__media">
             <div class="social__media--wrap">
-                <div class="footer__logo" style="text-align: right;"> <!-- Adjusted logo to the right -->
+                <div class="footer__logo" style="text-align: right;">
                     <a href="#" id="footer__logo">
                         <i class="fas fa-gem"></i>SafeWalker
                     </a>
                 </div>
-                <p class="website__right" style="text-align: right;">SafeWalker 2024</p> <!-- Adjusted copyright to the right -->
+                <p class="website__right" style="text-align: right;">SafeWalker 2024</p>
             </div>
         </div>
     </div>
 
     <script>
-        let map;
-        let directionsService;
-        let directionsRenderer;
-        let autocomplete;
-        let userCircle;
+        let map, directionsService, directionsRenderer, autocomplete;
 
         function initMap() {
             directionsService = new google.maps.DirectionsService();
@@ -192,86 +167,47 @@
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
-                    const userLocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
+                    const userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
 
                     map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 14,
-                        center: userLocation 
-                    });
-
-                    userCircle = new google.maps.Circle({
-                        strokeColor: '#4285F4',
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        fillColor: '#4285F4',
-                        fillOpacity: 0.35,
-                        map: map,
-                        center: userLocation,
-                        radius: 10
+                        center: userLocation
                     });
 
                     directionsRenderer.setMap(map);
-
                     const input = document.getElementById('destination');
                     autocomplete = new google.maps.places.Autocomplete(input);
-
-                    autocomplete.setBounds(new google.maps.LatLngBounds(
-                        new google.maps.LatLng(userLocation.lat - 0.1, userLocation.lng - 0.1),
-                        new google.maps.LatLng(userLocation.lat + 0.1, userLocation.lng + 0.1)
-                    ));
-
-                }, function (error) {
-                    console.error("Error retrieving location:", error);
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 14,
-                        center: { lat: 37.7749, lng: -122.4194 } // Fallback: San Francisco
-                    });
-                    directionsRenderer.setMap(map);
                 });
             }
         }
 
-        function sendLocation() {
+        document.getElementById('destinationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
             const destination = document.getElementById('destination').value;
 
-            if (!destination) {
-                alert("Please enter a destination.");
-                return;
-            }
-
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                const userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                
-                const request = {
-                    origin: userLocation,
-                    destination: destination,
-                    travelMode: 'WALKING'
-                };
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const originLat = position.coords.latitude;
+                    const originLng = position.coords.longitude;
 
-                directionsService.route(request, function (result, status) {
-                    if (status === 'OK') {
-                        directionsRenderer.setDirections(result);
-                    } else {
-                        window.alert('Directions request failed due to ' + status);
-                    }
+                    const formData = new FormData();
+                    formData.append('destination', destination);
+                    formData.append('origin_lat', originLat);
+                    formData.append('origin_lng', originLng);
+
+                    fetch('/destination', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Display the message or error from the server
+                        document.getElementById('instructions').innerText = data.message || data.error;
+                    })
+                    .catch(error => console.error('Error:', error));
                 });
-            });
-        }
-    }
-
-        // Scroll to Explore SafeWalker with a 20px offset
-        function scrollToExplore() {
-            const exploreSection = document.getElementById('explore');
-            exploreSection.scrollIntoView({ behavior: 'smooth' });
-            window.scrollBy(0, -20); // Offset of 20px
-        }
+            }
+        });
     </script>
 </body>
 </html>

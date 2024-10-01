@@ -1,42 +1,47 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, jsonify
 import pyttsx3  # For text-to-speech
 import requests  # To call Google Maps API
-import json
 
 app = Flask(__name__)
 
 # Initialize the text-to-speech engine
 engine = pyttsx3.init()
-destination = input("Please enter your destination: ")
 
-def get_directions():
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    # Your Google Maps API key
-    google_maps_api_key = 'YOUR_API'
+@app.route('/destination', methods=['POST'])
+def destination():
+    destination = request.form['destination']
+    origin_lat = request.form['origin_lat']
+    origin_lng = request.form['origin_lng']
+    origin = f"{origin_lat},{origin_lng}"
 
-    # User's current location (you can hard-code it or use a method to get it dynamically)
-    origin = "Current Location"  # Replace with actual location if needed
+    directions_response = get_directions(origin, destination)
+    return jsonify(directions_response)
 
-    # Call Google Maps Directions API
-    directions_url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&key={google_maps_api_key}"
+def get_directions(origin, destination):
+    # Your Google Maps API key (ensure it's valid and safe to use)
+    google_maps_api_key = 'AIzaSyDxgjI0Fzhsz4sqf9HR4QIVrcpJjKxllBk'
+
+    directions_url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&mode=walking&key={google_maps_api_key}"
     response = requests.get(directions_url)
-    
+
     if response.status_code == 200:
         directions = response.json()
-        # Check if the response contains valid routes
         if directions['status'] == 'OK':
             steps = directions['routes'][0]['legs'][0]['steps']
             directions_text = []
             for step in steps:
-                directions_text.append(step['html_instructions'])  # Get HTML formatted instructions
-            # Join instructions for speech
+                # Parse and strip out HTML instructions for readability
+                directions_text.append(step['html_instructions'].replace('<div style="font-size:0.9em">', '').replace('</div>', ''))
             final_directions = " ".join(directions_text)
-            speak(final_directions)
-            return f"Directions to {destination} have been spoken out loud."
+            speak(final_directions)  # Speak the final directions
+            return {"message": f"Directions to {destination} spoken aloud."}
         else:
-            return "No valid routes found."
-
-    return "Error fetching directions."
+            return {"error": "No valid routes found."}
+    return {"error": "Error fetching directions."}
 
 def speak(text):
     """Convert text to speech."""
