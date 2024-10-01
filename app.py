@@ -12,7 +12,7 @@ destination = input("Please enter your destination: ")
 def get_directions():
 
     # Your Google Maps API key
-    google_maps_api_key = 'AIzaSyAYf4YdRCRj20wi5GbV14vOsE8aVGCNDVs'
+    google_maps_api_key = 'YOUR_API'
 
     # User's current location (you can hard-code it or use a method to get it dynamically)
     origin = "Current Location"  # Replace with actual location if needed
