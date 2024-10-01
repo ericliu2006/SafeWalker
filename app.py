@@ -23,7 +23,7 @@ def destination():
 
 def get_directions(origin, destination):
     # Your Google Maps API key (ensure it's valid and safe to use)
-    google_maps_api_key = 'AIzaSyDxgjI0Fzhsz4sqf9HR4QIVrcpJjKxllBk'
+    google_maps_api_key = ''
 
     directions_url = f"https://maps.googleapis.com/maps/api/directions/json?origin={origin}&destination={destination}&mode=walking&key={google_maps_api_key}"
     response = requests.get(directions_url)
