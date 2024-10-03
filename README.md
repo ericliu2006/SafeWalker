@@ -6,7 +6,8 @@ This script utilizes YOLOv8 and OpenCV to detect traffic signs (pedestrian signa
 
 ## Members
 - Eric Liu   eyl17@pitt.edu
-- Thomas Tran  tdt17@pitt.edu  
+- Thomas Tran  tdt17@pitt.edu
+- Akhil Bodahanapati akb198@pitt.edu
 - Lokesh Daita lod42@pitt.edu
 - Abhinav Nath abn52@pitt.edu
 
